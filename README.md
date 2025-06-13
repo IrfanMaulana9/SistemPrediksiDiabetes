@@ -1,199 +1,238 @@
-# Sistem Prediksi Diabetes
+# 🩺 Sistem Prediksi Diabetes
 
-Aplikasi berbasis Java dengan machine learning untuk memprediksi diabetes menggunakan Dataset Diabetes Pima Indian.
+Aplikasi ini adalah sistem berbasis Java yang dibuat untuk memprediksi risiko diabetes menggunakan dataset medis dari wanita Pima Indian. Sistem ini dikembangkan dengan pendekatan machine learning sederhana namun efektif: regresi logistik manual + UI modern JavaFX.
 
-## Gambaran Umum
+---
 
-Aplikasi ini menggunakan regresi logistik dengan gradient descent untuk memprediksi apakah seorang pasien menderita diabetes berdasarkan pengukuran diagnostik. Dataset berisi informasi tentang wanita Pima Indian berusia 21 tahun ke atas.
+## 🔍 Gambaran Umum
 
-## Fitur Utama
+Saat ini, penyakit diabetes semakin banyak ditemukan di masyarakat. Aplikasi ini mencoba membantu dalam proses skrining awal dengan membuat prediksi risiko diabetes berdasarkan data medis pasien.
 
-- **Model Machine Learning**: Implementasi regresi logistik dari awal
-- **Analisis Data**: Analisis dataset komprehensif dan statistik
-- **Prediksi Interaktif**: Antarmuka grafis modern untuk membuat prediksi
-- **Evaluasi Model**: Metrik performa termasuk akurasi, presisi, recall, dan F1-score
-- **Normalisasi Data**: Normalisasi z-score untuk performa model yang lebih baik
-- **Mode Gelap/Terang**: Dukungan tema dengan desain modern
-- **Animasi Halus**: Transisi dan animasi untuk pengalaman pengguna yang lebih baik
+Dataset yang digunakan berasal dari **Pima Indian Diabetes Dataset**, yang biasa dipakai sebagai benchmark dalam penelitian klasifikasi medis.  
+Dengan menggunakan metode regresi logistik dan antarmuka grafis JavaFX, aplikasi ini tidak hanya bisa memprediksi, tapi juga menampilkan informasi statistik dan visualisasi yang informatif.
 
-## Fitur Dataset
+---
 
-Model menggunakan 8 fitur diagnostik:
-1. **Kehamilan**: Jumlah kali hamil
-2. **Glukosa**: Konsentrasi glukosa plasma (mg/dL)
-3. **Tekanan Darah**: Tekanan darah diastolik (mm Hg)
-4. **Ketebalan Kulit**: Ketebalan lipatan kulit trisep (mm)
-5. **Insulin**: Insulin serum 2 jam (mu U/ml)
-6. **BMI**: Indeks massa tubuh (berat dalam kg/(tinggi dalam m)^2)
-7. **Fungsi Silsilah Diabetes**: Fungsi silsilah diabetes
-8. **Usia**: Usia dalam tahun
+## 🧠 Fitur Utama
 
+Apa saja fitur utama dari aplikasi ini?
 
-## Cara Menjalankan
+- **Model Regresi Logistik**: Dibuat dari nol tanpa library ML eksternal
+- **Analisis Data**: Statistik dasar, distribusi, dan korelasi antar-fitur
+- **Antarmuka Pengguna (UI)**: Antarmuka interaktif berbasis JavaFX
+- **Evaluasi Model**: Akurasi, presisi, recall, F1-score
+- **Normalisasi Z-Score**: Menyamakan skala tiap fitur agar model lebih stabil
+- **Tema Mode Terang/Gelap**: Desain UI yang nyaman dan segar
+- **Animasi Halus**: Transisi dan efek visual untuk pengalaman pengguna yang lebih baik
 
-### Prasyarat
-- Java 11 atau lebih tinggi
-- Maven 3.6 atau lebih tinggi
+---
 
-### Langkah-langkah
+## 📋 Informasi Dataset
 
-1. **Clone atau unduh proyek**
+Setiap pasien dalam dataset memiliki 8 fitur penting:
 
-2. **Kompilasi proyek**:
-   \`\`\`bash
-   mvn clean compile
-   \`\`\`
+| Fitur | Deskripsi |
+|-------|-----------|
+| Jumlah Kehamilan | Berapa kali wanita tersebut pernah hamil |
+| Glukosa | Kadar gula darah plasma (mg/dL) |
+| Tekanan Darah | Tekanan darah diastolik (mm Hg) |
+| Ketebalan Kulit | Ketebalan lipatan kulit triceps (mm) |
+| Insulin | Serum insulin 2 jam setelah tes (mu U/ml) |
+| BMI | Indeks massa tubuh (kg/m²) |
+| Fungsi Silsilah | Skor genetik riwayat diabetes keluarga |
+| Usia | Usia pasien dalam tahun |
 
-3. **Jalankan aplikasi**:
-   \`\`\`bash
-   mvn javafx:run
-   \`\`\`
+> Setiap fitur ini punya kontribusi berbeda dalam memprediksi apakah seorang pasien menderita diabetes atau tidak.
 
-4. **Atau build dan jalankan JAR**:
-   \`\`\`bash
-   mvn clean package
-   java -jar target/diabetes-prediction-system-1.0.0.jar
-   \`\`\`
+---
 
-### Menjalankan Test
-\`\`\`bash
-mvn test
-\`\`\`
+## ⚙️ Cara Kerja Aplikasi
 
-## Penggunaan
+### Alur Aplikasi:
+```
+[Muat Dataset] → [Hitung Rata-rata & Deviasi Standar] → [Train Model Regresi Logistik] → [Prediksi Pasien Baru]
+```
 
-Ketika Anda menjalankan aplikasi, aplikasi akan:
+#### Tahapan Detail:
+1. **Preprocessing**
+   - Semua fitur dinormalisasi dengan Z-Score
+   - Nilai 0 (invalid) di beberapa kolom diabaikan saat pelatihan
 
-1. **Memuat dataset** dari \`data/diabetes.csv\`
-2. **Menampilkan statistik dataset** termasuk distribusi kasus diabetes
-3. **Melatih model regresi logistik** menggunakan gradient descent
-4. **Menampilkan metrik performa model** (akurasi, presisi, recall, F1-score)
-5. **Memulai mode prediksi interaktif** dengan antarmuka grafis modern
+2. **Pelatihan Model**
+   - Menggunakan algoritma gradient descent
+   - Output: bobot dan bias model yang siap digunakan
 
-### Membuat Prediksi
+3. **Prediksi**
+   - Masukkan data pasien baru
+   - Model menghitung probabilitas diabetes
+   - Jika > 50%, prediksi "DIABETES DETECTED"
 
-Dalam antarmuka grafis, masukkan data pasien pada form yang tersedia:
+4. **Visualisasi**
+   - Tabel dataset lengkap
+   - Grafik distribusi diabetes
+   - Hasil prediksi real-time
 
-\`\`\`
-=== Informasi Pasien ===
-Jumlah Kehamilan: 2
-Tingkat Glukosa: 120
-Tekanan Darah: 70
-Ketebalan Kulit: 30
-Tingkat Insulin: 100
-BMI: 25.5
-Fungsi Silsilah Diabetes: 0.5
-Usia: 35
+---
 
---- Hasil Prediksi ---
+## 🎯 Contoh Prediksi
+
+Ketika aplikasi dijalankan, Anda bisa langsung memasukkan data pasien baru untuk melihat apakah ia berisiko menderita diabetes.
+
+Contoh input:
+
+```
+Jumlah Kehamilan     : 2
+Glukosa               : 120
+Tekanan Darah         : 70
+Ketebalan Kulit       : 30
+Insulin               : 100
+BMI                   : 25.5
+Fungsi Silsilah       : 0.5
+Usia                  : 35
+```
+
+Output prediksi:
+```
 Risiko Diabetes: 45.67%
 Prediksi: TIDAK ADA DIABETES
 Kepercayaan: 54.33%
-\`\`\`
+```
 
-## Fitur Antarmuka
+➡️ Ini berarti pasien cenderung sehat, tetapi masih ada risiko ~45% jika faktor lain berubah.
 
-### 🎨 Desain Modern
-- **Tema Terang/Gelap**: Toggle antara mode terang dan gelap
-- **Animasi Halus**: Transisi dan efek hover yang menarik
-- **Desain Responsif**: Menyesuaikan dengan ukuran layar
-- **Warna yang Nyaman**: Palet warna yang enak dipandang mata
+---
 
-### 📊 Visualisasi Data
-- **Tabel Dataset**: Tampilan data dalam format tabel yang rapi
-- **Grafik Distribusi**: Visualisasi distribusi kasus diabetes
-- **Statistik Real-time**: Informasi statistik dataset yang komprehensif
+## 🖥️ Tampilan Antarmuka
 
-### 🔮 Prediksi Interaktif
-- **Form Input Modern**: Field input dengan validasi
-- **Hasil Visual**: Tampilan hasil dengan warna dan animasi
-- **Progress Bar**: Indikator kepercayaan prediksi
-- **Status Real-time**: Informasi status aplikasi
+### Desain UI
+- Warna biru lembut dan putih memberikan nuansa profesional
+- Font Segoe UI / Arial untuk tampilan yang bersih
+- Tombol interaktif dan progress bar untuk confidence level
 
-## Performa Model
+### Tab Aplikasi
+1. **Prediction**: Form input pasien dan hasil prediksi
+2. **About**: Informasi tentang dataset dan model
+3. **View Dataset**: Tabel pasien dan grafik distribusi diabetes
 
-Model regresi logistik biasanya mencapai:
-- **Akurasi**: ~75-80%
-- **Presisi**: ~70-75%
-- **Recall**: ~60-70%
-- **F1-Score**: ~65-72%
+---
 
-Performa dapat bervariasi tergantung pada dataset spesifik dan parameter pelatihan.
+## 📊 Performa Model
 
-## Detail Teknis
+Hasil evaluasi model menunjukkan akurasi rata-rata:
 
-### Algoritma
-- **Regresi Logistik** dengan optimisasi gradient descent
-- **Normalisasi Fitur** menggunakan standardisasi z-score
-- **Aktivasi Sigmoid** untuk output probabilitas
-- **Fungsi Loss Cross-entropy**
+| Metrik | Nilai |
+|--------|-------|
+| Akurasi | ±75–80% |
+| Presisi | ±70–75% |
+| Recall | ±60–70% |
+| F1-Score | ±65–72% |
 
-### Parameter Pelatihan
-- Learning Rate: 0.01
-- Iterasi Maksimum: 1000
-- Threshold Konvergensi: 1e-6
+➡️ Angka ini cukup baik untuk model regresi logistik yang dilatih secara manual.
 
-### Teknologi
-- **Java 11+**: Bahasa pemrograman utama
-- **JavaFX 17**: Framework antarmuka pengguna
-- **Maven**: Build tool dan dependency management
-- **CSS3**: Styling untuk antarmuka modern
+---
 
-## Kontribusi
+## 🛠 Teknologi & Tools
 
-1. Fork repository
-2. Buat feature branch
-3. Lakukan perubahan
-4. Tambahkan test untuk fitur baru
-5. Submit pull request
+- **Java 11+** – Bahasa pemrograman utama
+- **JavaFX 17** – Untuk antarmuka pengguna
+- **Maven** – Manajemen dependensi dan build
+- **CSS3** – Styling UI
+- **Apache Commons Math (opsional)** – Bantuan komputasi matematika
 
-## Lisensi
+---
 
-Proyek ini adalah open source dan tersedia di bawah Lisensi MIT.
+## 🧪 Parameter Pelatihan Model
 
-## Sumber Dataset
+Model dilatih dengan parameter berikut:
 
-Dataset Diabetes Pima Indian berasal dari National Institute of Diabetes and Digestive and Kidney Diseases.
+| Nama | Nilai |
+|------|-------|
+| Learning Rate | 0.01 |
+| Iterasi Maksimum | 1000 |
+| Threshold Konvergensi | 1e-6 |
 
-## Dukungan
+Fitur normalisasi Z-Score digunakan untuk menyamakan skala semua variabel sebelum masuk ke model.
 
-Jika Anda mengalami masalah atau memiliki pertanyaan, silakan buat issue di repository ini.
+---
 
-## Changelog
 
-### Versi 1.0.0
-- ✅ Implementasi model regresi logistik
-- ✅ Antarmuka JavaFX modern dengan tema gelap/terang
-- ✅ Analisis dataset komprehensif
-- ✅ Sistem prediksi interaktif
-- ✅ Animasi dan transisi halus
-- ✅ Dukungan Bahasa Indonesia
-- ✅ Unit testing
-- ✅ Dokumentasi lengkap
 
-## Roadmap
+File penting:
+- `DiabetesPredictor.java`: Inti dari model prediksi
+- `Patient.java`: Model data pasien
+- `DataLoader.java`: Muat dataset CSV
+- `ModelTrainer.java`: Latih model regresi logistik
+- `DiabetesPredictionUI.java`: Antarmuka pengguna JavaFX
 
-### Versi 1.1.0 (Planned)
-- 🔄 Dashboard visualisasi data lanjutan
-- 🔄 Perbandingan multiple algoritma ML
-- 🔄 Export hasil ke PDF/CSV
-- 🔄 Sistem manajemen profil pengguna
-- 🔄 Validasi input real-time
+---
 
-### Versi 1.2.0 (Future)
-- 🔄 API REST untuk integrasi
-- 🔄 Database support
-- 🔄 Model ensemble
-- 🔄 Deployment ke cloud
-  \`\`\`
+## 📈 Statistik Dataset
 
-Saya juga akan memperbarui beberapa komentar dalam kode yang user-facing:
+Dataset berisi ±768 record pasien wanita Pima Indian. Dari jumlah itu:
+- Sekitar 34.9% pasien menderita diabetes
+- Rata-rata kadar glukosa pada pasien diabetes = 141.28 mg/dL
+- Rata-rata usia pasien diabetes = 37 tahun
 
-```typescriptreact file="src/main/java/com/diabetes/prediction/model/Patient.java"
-[v0-no-op-code-block-prefix]package com.diabetes.prediction.model;
+➡️ Korelasi tertinggi dengan diabetes adalah kadar gula darah (`Glucose`) dengan nilai ~0.467 (korelasi moderat)
+
+---
+
+## 🧩 Bagaimana Proses Normalisasi Dilakukan?
+
+Sebelum model bisa memproses data, kita lakukan **normalisasi Z-Score**:
+
+```text
+Z = (X - Rata-Rata) / Deviasi Standar
+```
+
+Contoh:
+- Glukosa pasien = 148 mg/dL
+- Rata-rata glukosa = 121.7 mg/dL
+- Deviasi standar = 30.51 mg/dL
+
+```text
+Z = (148 - 121.7) / 30.51 ≈ 0.86
+```
+
+➡️ Nilai ini kemudian dimasukkan ke dalam model regresi logistik.
+
+---
+
+## 🧮 Rumus Prediksi
+
+Model menggunakan rumus regresi logistik:
+
+```
+z = w₀×f₀ + w₁×f₁ + ... + w₇×f₇ + bias
+probabilitas_diabetes = 1 / (1 + e^(-z))
+```
+
+Jika probabilitas ≥ 0.5 → prediksi: **DIABETES DETECTED**
+
+---
+
+
+## 📦 Sumber Dataset
+
+Dataset asli berasal dari National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK). 
+Berikut Link Kaggle Dataset Pima Indians Diabetes Database 
+https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
+
+---
+
+
+
+
+## 🗂️ File: Patient.java
+
+Berikut adalah salah satu bagian kode yang merepresentasikan objek pasien:
+
+```java
+package com.diabetes.prediction.model;
 
 /**
- * Model data pasien yang merepresentasikan fitur dari Dataset Diabetes Pima Indian
+ * Model data pasien yang merepresentasikan 
+ * satu baris dari dataset Pima Indian
  */
 public class Patient {
     private int pregnancies;
@@ -204,8 +243,8 @@ public class Patient {
     private double bmi;
     private double diabetesPedigreeFunction;
     private int age;
-    private int outcome; // 0 = no diabetes, 1 = diabetes
-    
+    private int outcome; // 0 = tidak, 1 = ya
+
     public Patient(int pregnancies, double glucose, double bloodPressure, 
                    double skinThickness, double insulin, double bmi, 
                    double diabetesPedigreeFunction, int age, int outcome) {
@@ -219,8 +258,11 @@ public class Patient {
         this.age = age;
         this.outcome = outcome;
     }
-    
-    // Konversi data pasien ke array fitur untuk model ML
+
+    /**
+     * Mengembalikan semua fitur pasien dalam bentuk array
+     * Digunakan untuk pelatihan dan prediksi model
+     */
     public double[] getFeatures() {
         return new double[] {
             pregnancies, glucose, bloodPressure, skinThickness,
@@ -228,41 +270,38 @@ public class Patient {
         };
     }
     
-    // Getters and Setters
-    public int getPregnancies() { return pregnancies; }
-    public void setPregnancies(int pregnancies) { this.pregnancies = pregnancies; }
-    
-    public double getGlucose() { return glucose; }
-    public void setGlucose(double glucose) { this.glucose = glucose; }
-    
-    public double getBloodPressure() { return bloodPressure; }
-    public void setBloodPressure(double bloodPressure) { this.bloodPressure = bloodPressure; }
-    
-    public double getSkinThickness() { return skinThickness; }
-    public void setSkinThickness(double skinThickness) { this.skinThickness = skinThickness; }
-    
-    public double getInsulin() { return insulin; }
-    public void setInsulin(double insulin) { this.insulin = insulin; }
-    
-    public double getBmi() { return bmi; }
-    public void setBmi(double bmi) { this.bmi = bmi; }
-    
-    public double getDiabetesPedigreeFunction() { return diabetesPedigreeFunction; }
-    public void setDiabetesPedigreeFunction(double diabetesPedigreeFunction) { 
-        this.diabetesPedigreeFunction = diabetesPedigreeFunction; 
-    }
-    
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
-    
-    public int getOutcome() { return outcome; }
-    public void setOutcome(int outcome) { this.outcome = outcome; }
-    
-    @Override
-    public String toString() {
-        return String.format("Pasien{kehamilan=%d, glukosa=%.1f, tekananDarah=%.1f, " +
-                           "ketebalanKulit=%.1f, insulin=%.1f, bmi=%.1f, dpf=%.3f, usia=%d, hasil=%d}",
-                           pregnancies, glucose, bloodPressure, skinThickness, 
-                           insulin, bmi, diabetesPedigreeFunction, age, outcome);
-    }
+    // Getter dan setter untuk setiap field
 }
+```
+
+➡️ Kelas ini menjadi fondasi dari seluruh operasi prediksi dan pelatihan.
+
+---
+
+## 🧪 Unit Testing
+
+Aplikasi ini sudah dilengkapi unit testing untuk memastikan model bekerja dengan benar:
+- Memastikan prediksi konsisten
+- Menjamin akurasi output
+- Memvalidasi bahwa preprocessing berjalan lancar
+
+---
+
+## 📅 Changelog
+
+### v1.0.0
+- ✅ Regresi logistik manual
+- ✅ Antarmuka JavaFX modern
+- ✅ Analisis dataset
+- ✅ Prediksi interaktif
+- ✅ Animasi UI
+- ✅ Tema gelap dan terang
+- ✅ Unit test dan dokumentasi
+
+---
+
+## 😊 Kesimpulan
+
+Aplikasi ini adalah proyek pembelajaran yang membantu mahasiswa memahami cara kerja model regresi logistik secara manual. Meskipun implementasinya sederhana, aplikasi ini cukup efektif untuk memprediksi risiko diabetes dan memberikan insight medis yang berguna.
+
+Selain itu, antarmuka JavaFX memberikan pengalaman pengguna yang modern dan responsif, sehingga aplikasi ini bisa digunakan oleh dokter atau tenaga kesehatan untuk skrining awal.
