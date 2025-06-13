@@ -300,7 +300,7 @@ Aplikasi ini sudah dilengkapi unit testing untuk memastikan model bekerja dengan
 
 ---
 
-## 😊 Kesimpulan
+##  Kesimpulan
 
 Aplikasi ini adalah proyek pembelajaran yang membantu mahasiswa memahami cara kerja model regresi logistik secara manual. Meskipun implementasinya sederhana, aplikasi ini cukup efektif untuk memprediksi risiko diabetes dan memberikan insight medis yang berguna.
 
