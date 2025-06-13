@@ -28,40 +28,6 @@ Model menggunakan 8 fitur diagnostik:
 7. **Fungsi Silsilah Diabetes**: Fungsi silsilah diabetes
 8. **Usia**: Usia dalam tahun
 
-## Struktur Proyek
-
-\`\`\`
-sistem-prediksi-diabetes/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── diabetes/
-│   │   │           └── prediction/
-│   │   │               ├── DiabetesPredictionApp.java    # Aplikasi utama
-│   │   │               ├── model/
-│   │   │               │   ├── Patient.java              # Model data pasien
-│   │   │               │   └── DiabetesPredictor.java    # Model prediksi ML
-│   │   │               ├── ui/
-│   │   │               │   └── DiabetesPredictionUI.java # Antarmuka JavaFX
-│   │   │               └── utils/
-│   │   │                   ├── DataLoader.java           # Pemuat data CSV
-│   │   │                   ├── ModelTrainer.java         # Logika pelatihan model
-│   │   │                   └── DataAnalyzer.java         # Utilitas analisis data
-│   │   └── resources/
-│   │       └── styles/
-│   │           └── application.css                       # Styling CSS modern
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── diabetes/
-│                   └── prediction/
-│                       └── ModelTest.java                # Unit test
-├── data/
-│   └── diabetes.csv                                      # File dataset
-├── pom.xml                                               # Konfigurasi Maven
-└── README.md                                             # File ini
-\`\`\`
 
 ## Cara Menjalankan
 
