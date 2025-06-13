@@ -1,10 +1,10 @@
-# 🩺 Sistem Prediksi Diabetes
+#  Sistem Prediksi Diabetes
 
 Aplikasi ini adalah sistem berbasis Java yang dibuat untuk memprediksi risiko diabetes menggunakan dataset medis dari wanita Pima Indian. Sistem ini dikembangkan dengan pendekatan machine learning sederhana namun efektif: regresi logistik manual + UI modern JavaFX.
 
 ---
 
-## 🔍 Gambaran Umum
+##  Gambaran Umum
 
 Saat ini, penyakit diabetes semakin banyak ditemukan di masyarakat. Aplikasi ini mencoba membantu dalam proses skrining awal dengan membuat prediksi risiko diabetes berdasarkan data medis pasien.
 
@@ -13,7 +13,7 @@ Dengan menggunakan metode regresi logistik dan antarmuka grafis JavaFX, aplikasi
 
 ---
 
-## 🧠 Fitur Utama
+##  Fitur Utama
 
 Apa saja fitur utama dari aplikasi ini?
 
@@ -27,7 +27,7 @@ Apa saja fitur utama dari aplikasi ini?
 
 ---
 
-## 📋 Informasi Dataset
+##  Informasi Dataset
 
 Setiap pasien dalam dataset memiliki 8 fitur penting:
 
@@ -46,7 +46,7 @@ Setiap pasien dalam dataset memiliki 8 fitur penting:
 
 ---
 
-## ⚙️ Cara Kerja Aplikasi
+##  Cara Kerja Aplikasi
 
 ### Alur Aplikasi:
 ```
@@ -74,7 +74,7 @@ Setiap pasien dalam dataset memiliki 8 fitur penting:
 
 ---
 
-## 🎯 Contoh Prediksi
+##  Contoh Prediksi
 
 Ketika aplikasi dijalankan, Anda bisa langsung memasukkan data pasien baru untuk melihat apakah ia berisiko menderita diabetes.
 
@@ -102,7 +102,7 @@ Kepercayaan: 54.33%
 
 ---
 
-## 🖥️ Tampilan Antarmuka
+##  Tampilan Antarmuka
 
 ### Desain UI
 - Warna biru lembut dan putih memberikan nuansa profesional
@@ -116,7 +116,7 @@ Kepercayaan: 54.33%
 
 ---
 
-## 📊 Performa Model
+##  Performa Model
 
 Hasil evaluasi model menunjukkan akurasi rata-rata:
 
@@ -131,7 +131,7 @@ Hasil evaluasi model menunjukkan akurasi rata-rata:
 
 ---
 
-## 🛠 Teknologi & Tools
+##  Teknologi & Tools
 
 - **Java 11+** – Bahasa pemrograman utama
 - **JavaFX 17** – Untuk antarmuka pengguna
@@ -141,7 +141,7 @@ Hasil evaluasi model menunjukkan akurasi rata-rata:
 
 ---
 
-## 🧪 Parameter Pelatihan Model
+##  Parameter Pelatihan Model
 
 Model dilatih dengan parameter berikut:
 
@@ -166,7 +166,7 @@ File penting:
 
 ---
 
-## 📈 Statistik Dataset
+##  Statistik Dataset
 
 Dataset berisi ±768 record pasien wanita Pima Indian. Dari jumlah itu:
 - Sekitar 34.9% pasien menderita diabetes
@@ -177,7 +177,7 @@ Dataset berisi ±768 record pasien wanita Pima Indian. Dari jumlah itu:
 
 ---
 
-## 🧩 Bagaimana Proses Normalisasi Dilakukan?
+##  Bagaimana Proses Normalisasi Dilakukan?
 
 Sebelum model bisa memproses data, kita lakukan **normalisasi Z-Score**:
 
@@ -198,7 +198,7 @@ Z = (148 - 121.7) / 30.51 ≈ 0.86
 
 ---
 
-## 🧮 Rumus Prediksi
+##  Rumus Prediksi
 
 Model menggunakan rumus regresi logistik:
 
@@ -212,7 +212,7 @@ Jika probabilitas ≥ 0.5 → prediksi: **DIABETES DETECTED**
 ---
 
 
-## 📦 Sumber Dataset
+##  Sumber Dataset
 
 Dataset asli berasal dari National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK). 
 Berikut Link Kaggle Dataset Pima Indians Diabetes Database 
@@ -223,7 +223,7 @@ https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database
 
 
 
-## 🗂️ File: Patient.java
+##  File: Patient.java
 
 Berikut adalah salah satu bagian kode yang merepresentasikan objek pasien:
 
@@ -278,7 +278,7 @@ public class Patient {
 
 ---
 
-## 🧪 Unit Testing
+##  Unit Testing
 
 Aplikasi ini sudah dilengkapi unit testing untuk memastikan model bekerja dengan benar:
 - Memastikan prediksi konsisten
@@ -287,7 +287,7 @@ Aplikasi ini sudah dilengkapi unit testing untuk memastikan model bekerja dengan
 
 ---
 
-## 📅 Changelog
+##  Changelog
 
 ### v1.0.0
 - ✅ Regresi logistik manual
