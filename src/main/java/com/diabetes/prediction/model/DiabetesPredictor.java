@@ -1,7 +1,7 @@
 package com.diabetes.prediction.model;
 
 /**
- * Model prediksi diabetes menggunakan Regresi Logistik
+ * Diabetes prediction model using Logistic Regression
  */
 public class DiabetesPredictor {
     private double[] weights;
@@ -17,7 +17,7 @@ public class DiabetesPredictor {
     }
 
     /**
-     * Prediksi probabilitas diabetes untuk seorang pasien
+     * Predict diabetes probability for a patient
      */
     public double predictProbability(Patient patient) {
         double[] features = patient.getFeatures();
@@ -33,14 +33,14 @@ public class DiabetesPredictor {
     }
 
     /**
-     * Prediksi diabetes (benar/salah) untuk seorang pasien
+     * Predict diabetes (true/false) for a patient
      */
     public boolean predict(Patient patient) {
         return predictProbability(patient) >= 0.5;
     }
 
     /**
-     * Normalisasi fitur menggunakan normalisasi z-score
+     * Normalize features using z-score normalization
      */
     private double[] normalizeFeatures(double[] features) {
         double[] normalized = new double[features.length];

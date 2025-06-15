@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/com/diabetes/prediction/model/DiabetesPredictor.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/model/Patient.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/ui/DiabetesPredictionUI.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/utils/DataAnalyzer.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/utils/DataLoader.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/utils/ModelTrainer.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/java/com/diabetes/prediction/DiabetesPredictionApp.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/main/resources/styles/application.css;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/src/test/java/com/diabetes/prediction/ModelTest.java;C:/Users/LENOVO/Documents/Kuliah/.Semester 4/predictdiabetes/README.md" />
+  </component>
+</project>
