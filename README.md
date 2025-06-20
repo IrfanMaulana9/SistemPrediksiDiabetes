@@ -14,8 +14,6 @@ Dengan menggunakan metode regresi logistik dan antarmuka grafis JavaFX, aplikasi
 ---
 
 ##  Fitur Utama
-
-<<<<<<< HEAD
 =======
 Apa saja fitur utama dari aplikasi ini?
 
@@ -26,8 +24,6 @@ Apa saja fitur utama dari aplikasi ini?
 - **Normalisasi Z-Score**: Menyamakan skala tiap fitur agar model lebih stabil
 - **Tema Mode Terang/Gelap**: Desain UI yang nyaman dan segar
 - **Animasi Halus**: Transisi dan efek visual untuk pengalaman pengguna yang lebih baik
->>>>>>> 07822c3b4d96ea3faf91c40162a95cfe2dd70a7f
-
 ---
 
 ##  Informasi Dataset
